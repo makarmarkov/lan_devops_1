@@ -6,5 +6,4 @@
    git pull 
    ```
 2. Запустите файл index.html. Перед вами откроется следующая страница
-
-   ![1737563497043](image/install/1737563497043.png)
+![image](https://github.com/user-attachments/assets/9591615a-2fba-42dd-bd76-b6366cc2ed45)
