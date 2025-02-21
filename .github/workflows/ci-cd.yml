@@ -32,7 +32,7 @@ jobs:
         if:  
           contains(steps.branch-names.outputs.current_branch,'feature') == false &&
           contains(steps.branch-names.outputs.current_branch,'hotfix') == false
-        run: exit 0
+        run: exit 1
 
       - name: next step 
         run: echo "Branch [feature or hotifx] is valid! "
