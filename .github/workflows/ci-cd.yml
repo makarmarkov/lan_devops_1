@@ -35,8 +35,8 @@ jobs:
       - name: validate branch 
         id: validate-branch
         if:  
-          contains(steps.branch-names.outputs.current_branch,'feature') == false &&
-          contains(steps.branch-names.outputs.current_branch,'hotfix') == false
+          contains(steps.parse-data.outputs.current_branch,'feature') == false &&
+          contains(steps.parse-data.outputs.current_branch,'hotfix') == false
         run: exit 1
 
       - name: next step 
