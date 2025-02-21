@@ -5,11 +5,16 @@ on:
     types: [closed]
     branches:
     - release
+
+#global 
 env:
   NAME_VERSION_FILE: version
+
 jobs:
   validate-branch:
     runs-on: ubuntu-latest
+    outputs:
+      var1:  ${{ steps.next-step.outputs.var1 }}
     steps:
       - name: parse data
         id: parse-data
@@ -35,7 +40,18 @@ jobs:
         run: exit 1
 
       - name: next step 
-        run: echo "Branch [feature or hotifx] is valid! "
+        id: next-step
+        run: | 
+          echo "Current branch ${{steps.parse-data.ouputs._current_banch}}"
+          echo "var1='var1value'" >> "$GITHUB_OUTPUT"
+
+  second-job:
+    needs: validate-branch
+    runs-on: ubuntu-latest
+      steps:
+        - name: first step 
+          id: job2-step1
+          run: echo " ${{needs.validate-branch.outputs.var1}}"
 
   # print-data-information:
   #   runs-on: ubuntu-latest
