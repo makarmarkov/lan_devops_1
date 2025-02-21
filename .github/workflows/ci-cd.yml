@@ -48,10 +48,10 @@ jobs:
   second-job:
     needs: validate-branch
     runs-on: ubuntu-latest
-      steps:
-        - name: first step 
-          id: job2-step1
-          run: echo " ${{needs.validate-branch.outputs.var1}}"
+    steps:
+      - name: first step 
+        id: job2-step1
+        run: echo " ${{needs.validate-branch.outputs.var1}}"
 
   # print-data-information:
   #   runs-on: ubuntu-latest
